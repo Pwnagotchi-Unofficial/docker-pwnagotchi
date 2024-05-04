@@ -14,8 +14,8 @@ FROM --platform=${BUILDPLATFORM} docker.io/alpine:3 AS projects
 RUN apk add --no-cache ca-certificates curl git unzip
 
 # Download Nexmon
-ARG NEXMON_TREEISH=cea7c4b952b3e67110dc1032b8996dae0db9a857
-ARG NEXMON_REMOTE=https://github.com/hectorm/nexmon.git
+ARG NEXMON_TREEISH=aa9043e8b301e9392afc837b33c9b40f6c6aedfe
+ARG NEXMON_REMOTE=https://github.com/seemoo-lab/nexmon.git
 RUN mkdir /tmp/nexmon/
 WORKDIR /tmp/nexmon/
 RUN git clone "${NEXMON_REMOTE:?}" ./
@@ -40,8 +40,8 @@ RUN curl -Lo ./ui.zip "${BETTERCAP_UI_PKG_URL:?}"
 RUN unzip -q ./ui.zip
 
 # Download PwnGRID
-ARG PWNGRID_TREEISH=v1.10.3
-ARG PWNGRID_REMOTE=https://github.com/evilsocket/pwngrid.git
+ARG PWNGRID_TREEISH=v1.11.1
+ARG PWNGRID_REMOTE=https://github.com/jayofelony/pwngrid.git
 RUN mkdir /tmp/pwngrid/
 WORKDIR /tmp/pwngrid/
 RUN git clone "${PWNGRID_REMOTE:?}" ./
@@ -49,8 +49,8 @@ RUN git checkout "${PWNGRID_TREEISH:?}"
 RUN git submodule update --init --recursive
 
 # Download Pwnagotchi
-ARG PWNAGOTCHI_TREEISH=2122af4e264495d32ee415c074da8efd905901f0
-ARG PWNAGOTCHI_REMOTE=https://github.com/evilsocket/pwnagotchi.git
+ARG PWNAGOTCHI_TREEISH=70f0dcb891312a16acaf031d1bf63bd3e13c6528
+ARG PWNAGOTCHI_REMOTE=https://github.com/jayofelony/pwnagotchi.git
 RUN mkdir /tmp/pwnagotchi/
 WORKDIR /tmp/pwnagotchi/
 RUN git clone "${PWNAGOTCHI_REMOTE:?}" ./
